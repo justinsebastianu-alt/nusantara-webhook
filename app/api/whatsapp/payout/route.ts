@@ -13,7 +13,6 @@ export async function GET(request: Request) {
       );
     }
 
-    // Normalisasi input (contoh: "Host 101", "HOST101" -> "HOST-101")
     const normalizeKey = (key: string | null) => {
       if (!key) return "";
       let clean = key.toUpperCase().trim().replace(/\s+/g, "");
@@ -28,7 +27,6 @@ export async function GET(request: Request) {
 
     const searchKey = normalizeKey(rawHostId) || normalizeKey(rawBookingId);
 
-    // Mock Data Host
     const mockPayouts: Record<string, any> = {
       "HOST-101": {
         booking_id: "BK-2026-001",
